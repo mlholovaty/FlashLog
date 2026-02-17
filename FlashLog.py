@@ -221,7 +221,7 @@ class RocketLogger:
         tmp = arr[:, 3] # Temperature
 
         # --- CALCULATIONS ---
-        total_impulse = np.trapz(f, t) # Integral
+        total_impulse = np.trapezoid(f, t) # Integral
         
         # Burn Time Calculation
         active_indices = np.where(f > BURNOUT_TRIGGER)[0]
@@ -296,4 +296,5 @@ class RocketLogger:
 if __name__ == "__main__":
     app = RocketLogger()
     app.connect()
+
     app.run()
